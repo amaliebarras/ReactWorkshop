@@ -84,10 +84,11 @@
 	</li>
 	```
 
-###The example app is [here](https://github.com/zckly/reacttutorial)
+
 
 
 ##ToDo List App
+
 We'll get to see how data is passed around, & states and props in action with Click Handlers
 
 ```
@@ -96,6 +97,8 @@ We'll get to see how data is passed around, & states and props in action with Cl
 	<todoList/>
 </app>
 ```
+
+###The example app is [here](https://github.com/zckly/reacttutorial)
 
 ##Flux Application
 Flux is more scalable. If you send all the data to the parent, it's going to be so slow. But if you do it component by component, that's when flux is cool. 
