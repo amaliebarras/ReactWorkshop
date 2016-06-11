@@ -1,0 +1,80 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel" src="scripts/example.js"></script>
+    <script type="text/babel">
+      var TodoForm = React.createClass ({
+	getInitialState: function() {
+		return: {todoInput: ''}
+	},
+	changeInput: function(event) {
+		this.setState({todoInput: event.target.value})
+	},
+  handleSubmit: function(event) {
+    event.preventDefault();
+    console.log ('event', event.target)
+    var newTodo = event.target.value()
+      console.log('newTodo', newTodo)
+    //push newTodo into the Todos
+    var oldTodoList = this.props.todos
+    var updatedTodoList =
+    oldTodoList.push(newTodo)
+    this.props.addTodo(oldTodoList)
+    //call addTodo to update parent state
+  },
+	render: function() {
+		return (
+			<form>
+				<input onchange={}type="text" placeholder="enter Todo"/>
+				<button onclick={this.handleSubmit}>Enter</button>
+			</form>
+		)
+	}
+})
+
+var TodoList = React.createClass ({
+	render: function() {
+		return (
+			<div>
+              ToDoList
+            </div>
+		)
+	}
+})
+
+var App = React.createClass ({
+    getInitialState: function() {
+      return {todos: []}
+    },
+    addTodo: function(updatedTodos) {
+      this.setState({todos: updatedTodos})
+    },
+	render: function() {
+		return (
+			<div> 
+				<TodoForm todos={this.state.todos}{addTodo=this.addTodo} />
+                <TodoList/>
+			</div>
+		)
+	}
+})
+
+
+ReactDOM.render (
+	<App />,
+	document.getElementById('app')
+)
+    </script>
+  </body>
+</html>
