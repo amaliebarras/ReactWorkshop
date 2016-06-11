@@ -126,3 +126,7 @@ Looks just like React, but doesn't run in your browser, runs in your iPhone
 * Instagram is React Native
 * They had a mobile client first, and then wanted to create a web client, so they changed their code. 
 
+
+###Resources on [Zach's readme](https://github.com/zckly/reacttutorial)
+
+
