@@ -76,37 +76,16 @@
 * if you want to render two, you have to wrap it in a parent div
 * handlebars mean JS, not JSX
 * prevent default = don't refresh the page
+* another weird thing about react, you can't say class. you say className. 
 
-```
-var TodoForm = React.createClass ({
-	render: function() {
-		return (
-			<form>
-				<input type = "text" placeholder = "enter Todo"/>
-				<button>Enter</button>
-			</form>
-		)
-	}
-})
+	```
+	<li className="list-item">
+		{elem}
+	</li>
+	```
 
-var App = React.createClass ({
-	render: function() {
-		return (
-			<div> 
-				<TodoForm />
-			</div>
-		)
-	}
-})
+###The example app is [here](https://github.com/zckly/reacttutorial)
 
-
-
-ReactDOM.render (
-	<App />,
-	document.getelementBuId('app')
-)
-
-``` 
 
 ##ToDo List App
 We'll get to see how data is passed around, & states and props in action with Click Handlers
@@ -116,11 +95,34 @@ We'll get to see how data is passed around, & states and props in action with Cl
 	<todoForm/>
 	<todoList/>
 </app>
+```
 
 ##Flux Application
+Flux is more scalable. If you send all the data to the parent, it's going to be so slow. But if you do it component by component, that's when flux is cool. 
+
 In this one, they all have a state, instead of just the parent element
 
+```
 <app> state
 	<todoForm/> state
 	<todoList/> state
 </app>
+```
+
+* On FB, your notifications should change on your computer when you read a message on your phone.
+
+	* Initial state
+		* New message = 1
+	* Read messages from Phone
+		* New message = 0	
+	* Read messages from computer
+		* New message = 0
+
+##React Native
+Looks just like React, but doesn't run in your browser, runs in your iPhone
+	
+* Previously in mobile world, using JS wasn't best architecturally
+* But with this, it compiles this into objective C, so it's like Native code
+* Instagram is React Native
+* They had a mobile client first, and then wanted to create a web client, so they changed their code. 
+
